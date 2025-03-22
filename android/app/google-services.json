@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912550989832",
+    "project_id": "quizowl-1eee8",
+    "storage_bucket": "quizowl-1eee8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912550989832:android:97902a2c9bba11207741bd",
+        "android_client_info": {
+          "package_name": "hse.ru.quizowl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb5Ubyko2niVYh9rb67lL4wxoKmIXc0lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
