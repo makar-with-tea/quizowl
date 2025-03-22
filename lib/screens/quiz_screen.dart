@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizowl/models/question_model.dart';
+import 'package:quizowl/screens/result_screen.dart';
 import 'package:quizowl/services/owl_service.dart';
 import 'package:quizowl/views/question_card.dart';
 
@@ -39,30 +40,16 @@ class _QuizScreenState extends State<QuizScreen> {
         _currentQuestionIndex++;
         _selectedAnswerId = null;
       } else {
-        _showResultDialog();
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => ResultScreen(
+              correctAnswersCount: _correctAnswersCount,
+              totalQuestionsCount: _questions.length,
+            ),
+          ),
+        );
       }
     });
-  }
-
-  void _showResultDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Результаты'),
-          content: Text('Вы ответили правильно на $_correctAnswersCount из ${_questions.length} вопросов.'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
-              },
-              child: Text('ОК'),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   @override
@@ -96,6 +83,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 _selectedAnswerId = selectedId;
               });
             },
+            questionIndex: _currentQuestionIndex,
           ),
           ElevatedButton(
             onPressed: _nextQuestion,

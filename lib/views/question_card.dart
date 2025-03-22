@@ -7,6 +7,7 @@ class QuestionCard extends StatelessWidget {
   final int correctAnswerId;
   final int? selectedAnswerId;
   final Function(int) onOptionSelected;
+  final int questionIndex;
 
   const QuestionCard({super.key,
     required this.imageUrl,
@@ -15,6 +16,7 @@ class QuestionCard extends StatelessWidget {
     required this.correctAnswerId,
     required this.selectedAnswerId,
     required this.onOptionSelected,
+    required this.questionIndex
   });
 
   @override
@@ -23,6 +25,7 @@ class QuestionCard extends StatelessWidget {
       children: [
         if (imageUrl.isNotEmpty)
           Image.network(imageUrl),
+        Text('Вопрос ${questionIndex + 1}'),
         Text(question),
         ...options.asMap().entries.map((entry) {
           int idx = entry.key;

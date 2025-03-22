@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizowl/models/question_model.dart';
+import 'package:quizowl/views/question_form_field.dart';
 
 import '../services/owl_service.dart';
 
@@ -58,60 +59,12 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
           key: _formKey,
           child: ListView(
             children: [
-              TextFormField(
-                controller: _questionController,
-                decoration: InputDecoration(labelText: 'Вопрос'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Пожалуйста, введите вопрос';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _correctAnswerController,
-                decoration: InputDecoration(labelText: 'Правильный ответ'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Пожалуйста, введите правильный ответ';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _wrongAnswer1Controller,
-                decoration: InputDecoration(labelText: 'Неверный ответ 1'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Пожалуйста, введите неверный ответ';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _wrongAnswer2Controller,
-                decoration: InputDecoration(labelText: 'Неверный ответ 2'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Пожалуйста, введите неверный ответ';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _wrongAnswer3Controller,
-                decoration: InputDecoration(labelText: 'Неверный ответ 3'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Пожалуйста, введите неверный ответ';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _imageUrlController,
-                decoration: InputDecoration(labelText: 'Ссылка на фото (по желанию)'),
-              ),
+              QuestionFormField(question: 'Ваш вопрос', controller: _questionController, isRequired: true, errorText: 'Пожалуйста, введите вопрос.', maxLines: 3),
+              QuestionFormField(question: 'Правильный ответ', controller: _correctAnswerController, isRequired: true, errorText: 'Пожалуйста, введите правильный ответ.'),
+              QuestionFormField(question: 'Неправильный ответ 1', controller: _wrongAnswer1Controller, isRequired: true, errorText: 'Пожалуйста, введите неправильный ответ.'),
+              QuestionFormField(question: 'Неправильный ответ 2', controller: _wrongAnswer2Controller, isRequired: true, errorText: 'Пожалуйста, введите неправильный ответ.'),
+              QuestionFormField(question: 'Неправильный ответ 3', controller: _wrongAnswer3Controller, isRequired: true, errorText: 'Пожалуйста, введите неправильный ответ.'),
+              QuestionFormField(question: 'Ссылка на изображение', controller: _imageUrlController),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _submitForm,

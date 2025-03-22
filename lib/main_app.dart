@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quizowl/screens/add_question_screen.dart';
 import 'package:quizowl/screens/home_screen.dart';
 import 'package:quizowl/screens/quiz_screen.dart';
+import 'package:quizowl/screens/result_screen.dart';
 import 'package:quizowl/tools/app_theme.dart';
 
 class MainApp extends StatelessWidget {
