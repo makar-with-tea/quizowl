@@ -68,7 +68,19 @@ class _AddQuestionScreenState extends State<AddQuestionScreen> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _submitForm,
-                child: Text('Отправить'),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  backgroundColor: Color(0xFF4c5866),
+                  fixedSize: const Size(150, 30),
+                ),
+                child: Center(
+                  child: Text(
+                    "Отправить",
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
+                ),
               ),
             ],
           ),

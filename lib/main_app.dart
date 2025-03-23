@@ -11,9 +11,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Montserrat'),
       debugShowCheckedModeBanner: false,
       title: 'Quizowl',
-      theme: AppTheme.theme(false),
+      //theme: AppTheme.theme(false),
       initialRoute: '/',
       routes: {
         '/': (context) => HomeScreen(),

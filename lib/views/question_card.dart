@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class QuestionCard extends StatelessWidget {
@@ -9,14 +10,15 @@ class QuestionCard extends StatelessWidget {
   final Function(int) onOptionSelected;
   final int questionIndex;
 
-  const QuestionCard({super.key,
+  const QuestionCard({
+    super.key,
     required this.imageUrl,
     required this.question,
     required this.options,
     required this.correctAnswerId,
     required this.selectedAnswerId,
     required this.onOptionSelected,
-    required this.questionIndex
+    required this.questionIndex,
   });
 
   @override
@@ -24,7 +26,24 @@ class QuestionCard extends StatelessWidget {
     return Column(
       children: [
         if (imageUrl.isNotEmpty)
-          Image.network(imageUrl),
+          CachedNetworkImage(
+            imageUrl: imageUrl,
+            imageBuilder:
+                (context, imageProvider) => Container(
+                  height: 300,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                CircularProgressIndicator(value: downloadProgress.progress),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+          ),
         Text('Вопрос ${questionIndex + 1}'),
         Text(question),
         ...options.asMap().entries.map((entry) {

@@ -9,6 +9,8 @@ plugins {
 }
 
 android {
+    ndkVersion = "27.0.12077973"
+
     namespace = "hse.ru.quizowl"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.0.12077973"

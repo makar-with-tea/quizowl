@@ -6,24 +6,53 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('QuizOwl'),
-      ),
+      appBar: AppBar(title: Text('QuizOwl')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/quiz');
-              },
-              child: Text('Начать квиз'),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/quiz');
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  backgroundColor: Color(0xFF4c5866),
+                  fixedSize: const Size(340, 60),
+                ),
+                child: Center(
+                  child: Text(
+                    "НАЧАТЬ КВИЗ",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+
+                  ),
+                ),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/add-question');
-              },
-              child: Text('Предложить свой вопрос'),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/add-question');
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  backgroundColor: Color(0xFF4c5866),
+                  fixedSize: const Size(340, 60),
+                ),
+                child: Center(
+                  child: Text(
+                    "ПРЕДЛОЖИТЬ ВОПРОС",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
